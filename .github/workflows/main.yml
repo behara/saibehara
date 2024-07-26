@@ -4,9 +4,9 @@ name: Build-Scan-Push-Image-scan
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [ trivyExploitable ]
   pull_request:
-    branches: [ master ]
+    branches: [ trivyExploitable ]
 
 env:
   BuildNumber: ${{ github.run_id }}-${{ github.run_number }}
