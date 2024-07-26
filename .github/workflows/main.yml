@@ -4,9 +4,9 @@ name: Build-Scan-Push-Image-scan
 # events but only for the trivyExploitable branch
 on:
   push:
-    branches: [ trivyExploitable ]
+    branches: [ trivyMalware ]
   pull_request:
-    branches: [ trivyExploitable ]
+    branches: [ trivyMalware ]
 
 env:
   BuildNumber: ${{ github.run_id }}-${{ github.run_number }}
@@ -54,7 +54,7 @@ jobs:
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: 'trivyPremiumVuln.sarif'
+        sarif_file: 'trivyPremiumMalware.sarif'
 
     #- name: Push Docker image
     #  uses: docker/build-push-action@v1.1.0
